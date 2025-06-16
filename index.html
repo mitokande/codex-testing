@@ -15,6 +15,21 @@
       align-items: center;
       color: #333;
     }
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    header a {
+      margin: 0 1rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+    header a:hover {
+      text-decoration: underline;
+    }
     .container {
       text-align: center;
       background-color: rgba(255, 255, 255, 0.8);
@@ -43,6 +58,12 @@
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Tasks</a>
+    </nav>
+  </header>
   <div class="container">
     <h1>Welcome to Codex Testing!</h1>
     <p>This is a simple HTML page with a colorful background.</p>
