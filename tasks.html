@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    header a {
+      margin: 0 1rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+    header a:hover {
+      text-decoration: underline;
+    }
+    main {
+      width: 100%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    li.completed span {
+      text-decoration: line-through;
+      color: #888;
+    }
+    button {
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Task List</h1>
+    <form id="addForm">
+      <input type="text" id="taskInput" placeholder="New task" required>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="taskList"></ul>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('addForm');
+      const input = document.getElementById('taskInput');
+      const list = document.getElementById('taskList');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (text === '') return;
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        span.textContent = text;
+        const completeBtn = document.createElement('button');
+        completeBtn.textContent = 'Complete';
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+
+        completeBtn.addEventListener('click', function () {
+          li.classList.toggle('completed');
+        });
+
+        removeBtn.addEventListener('click', function () {
+          li.remove();
+        });
+
+        li.appendChild(span);
+        li.appendChild(completeBtn);
+        li.appendChild(removeBtn);
+        list.appendChild(li);
+        input.value = '';
+      });
+    });
+  </script>
+</body>
+</html>
