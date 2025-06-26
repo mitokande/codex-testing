@@ -14,5 +14,5 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           run: |
-            cd /home/automatewithai.xyz/public_html/
+            cd /home/automatewithai/public_html
             git pull
