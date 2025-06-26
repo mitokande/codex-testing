@@ -7,14 +7,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Deploy over SSH
-        uses: appleboy/ssh-action@v0.1.4
+      - name: Run sshpass commands
+        uses: matheusvanzan/sshpass-action@v2
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          script: |
-            cd /path/to/your/app
+          host: ${{ secrets.SERVER_HOST }}
+          user: ${{ secrets.SERVER_USER }}
+          pass: ${{ secrets.SERVER_PASS }}
+          run: |
+            cd /home/automatewithai.xyz/public_html/
             git pull
-            # additional deployment commands
