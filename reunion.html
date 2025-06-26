@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reunion Countdown</title>
+  <title>Reunion Countdown ❤</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       height: 100vh;
-      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      background: linear-gradient(135deg, #ffd5ec 0%, #ffb3c6 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -45,10 +45,29 @@
     }
     main {
       text-align: center;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .heart {
+      color: #e25590;
+      font-size: 1.5rem;
+      margin-left: 0.3rem;
+    }
+    .count::before,
+    .count::after {
+      content: "\1F496"; /* sparkling heart */
+      margin: 0 0.25rem;
+    }
+    body::after {
+      content: "\1F495"; /* two hearts emoji */
+      font-size: 4rem;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.4;
+      pointer-events: none;
     }
     #countdown {
       font-size: 2rem;
@@ -65,9 +84,9 @@
     </nav>
   </header>
   <main>
-    <h1>Countdown to Melisa</h1>
+    <h1>Countdown to Melisa <span class="heart">&#10084;&#65039;</span></h1>
     <p>Time left until you reunite with your beautiful girlfriend, Melisa:</p>
-    <div id="countdown">Loading...</div>
+    <div id="countdown" class="count">Loading...</div>
   </main>
 
   <script>
