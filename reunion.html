@@ -124,13 +124,13 @@
     <div id="countdown" class="count">Loading...</div>
     <div id="reunion-message" style="display:none;">
       <div class="big-heart">&#10084;&#65039;</div>
-      <p>You have reunited with Melisa!</p>
+      <p>Benimm biricikk sevgilimm sen benimm kalbimdeki en güzell çiçeksinn. Çiçeğim uzaklardayken çokk özledimm ben onu. Kabuşabildiğimiz için çok mutluyum.</p>
     </div>
   </main>
 
   <script>
     const targetDate = new Date('2025-06-27T04:00:00Z');
-    const hasAccess = new URLSearchParams(window.location.search).get('access');
+      const hasAccess = new URLSearchParams(window.location.search).has('access');
 
     function updateCountdown() {
       const now = new Date();
