@@ -136,14 +136,10 @@
       const now = new Date();
       const diff = targetDate - now;
 
-      if (diff <= 0) {
+      if (diff <= 0 || hasAccess) {
         clearInterval(interval);
-        if (hasAccess) {
-          document.getElementById('countdown').style.display = 'none';
-          document.getElementById('reunion-message').style.display = 'block';
-        } else {
-          document.getElementById('countdown').textContent = 'You have reunited with Melisa!';
-        }
+        document.getElementById('countdown').style.display = 'none';
+        document.getElementById('reunion-message').style.display = 'block';
         return;
       }
 
