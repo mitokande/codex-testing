@@ -97,6 +97,13 @@
       animation: floatUp 4s linear forwards;
     }
 
+    .big-heart {
+      font-size: 6rem;
+      color: #e25590;
+      animation: heartbeat 1.5s infinite;
+      margin-bottom: 1rem;
+    }
+
     @keyframes floatUp {
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-120vh); opacity: 0; }
@@ -115,18 +122,28 @@
     <h1>Countdown to Melisa <span class="heart">&#10084;&#65039;</span></h1>
     <p>Time left until you reunite with your beautiful girlfriend, Melisa:</p>
     <div id="countdown" class="count">Loading...</div>
+    <div id="reunion-message" style="display:none;">
+      <div class="big-heart">&#10084;&#65039;</div>
+      <p>You have reunited with Melisa!</p>
+    </div>
   </main>
 
   <script>
     const targetDate = new Date('2025-06-27T04:00:00Z');
+    const hasAccess = new URLSearchParams(window.location.search).has('access');
 
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        document.getElementById('countdown').textContent = 'You have reunited with Melisa!';
         clearInterval(interval);
+        if (hasAccess) {
+          document.getElementById('countdown').style.display = 'none';
+          document.getElementById('reunion-message').style.display = 'block';
+        } else {
+          document.getElementById('countdown').textContent = 'You have reunited with Melisa!';
+        }
         return;
       }
 
